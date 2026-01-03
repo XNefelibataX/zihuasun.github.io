@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zihua Sun | MSE EE @ UPenn</title>
+    <style>
+        :root {
+            --primary: #002e5d; /* UPenn Blue */
+            --accent: #9b0000;  /* UPenn Red */
+            --bg: #f4f7f6;
+            --text: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; }
+        header { background: var(--primary); color: white; padding: 4rem 1rem; text-align: center; }
+        .container { max-width: 900px; margin: auto; padding: 2rem; }
+        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid white; object-fit: cover; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        h1 { margin: 0.5rem 0; font-size: 2.8rem; letter-spacing: -1px; }
+        .subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .links a { color: white; text-decoration: none; margin: 0 10px; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; border-radius: 25px; transition: 0.3s; display: inline-block; }
+        .links a:hover { background: white; color: var(--primary); }
+        
+        section { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 2rem; }
+        h2 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-top: 0; font-size: 1.6rem; }
+        
+        .item { margin-bottom: 2rem; }
+        .item-header { display: flex; justify-content: space-between; font-weight: bold; font-size: 1.15rem; color: #000; }
+        .date { color: var(--accent); white-space: nowrap; margin-left: 10px; }
+        .institution { color: var(--primary); font-style: italic; margin-bottom: 0.5rem; }
+        
+        ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.5rem; }
+        
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+        .skill-tag { background: #f0f3f7; padding: 0.5rem; border-radius: 6px; text-align: center; font-size: 0.9rem; font-weight: 500; border: 1px solid #e1e8ed; }
+        
+        @media (max-width: 600px) { .item-header { flex-direction: column; } .date { margin-left: 0; margin-top: 5px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="photo.jpg" alt="Zihua Sun" class="profile-img">
+    <h1>Zihua Sun</h1>
+    <p class="subtitle">M.S.E. in Electrical Engineering @ University of Pennsylvania</p>
+    <div class="links">
+        <a href="mailto:szh16@seas.upenn.edu">Email</a>
+        <a href="https://www.linkedin.com/in/zihua-sun-974759381" target="_blank">LinkedIn</a>
+    </div>
+</header>
+
+<div class="container">
+    <section>
+        <h2>Education</h2>
+        <div class="item">
+            <div class="item-header"><span>University of Pennsylvania</span><span class="date">Expected 2026</span></div>
+            <div class="institution">M.S.E. in Electrical Engineering</div>
+        </div>
+        <div class="item">
+            <div class="item-header"><span>University of Edinburgh</span><span class="date">2021 – 2024</span></div>
+            <div class="institution">B.Eng. (Hons) in Electronics and Electrical Engineering | First Class (A3)</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Research Experience</h2>
+        <div class="item">
+            <div class="item-header"><span>Rehabilitation Robotics Laboratory</span><span class="date">2025 – Present</span></div>
+            <div class="institution">Research Assistant | University of Pennsylvania</div>
+            <ul>
+                <li>Collaborating on EEG-based BCI pipelines for decoding action observation (AO) and motor imagery (MI) intentions.</li>
+                <li>Implementing multi-channel EEG preprocessing and feature extraction workflows.</li>
+                <li>Integrating neural signals with robotic systems for closed-loop action visualization.</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="item-header"><span>Epidural Electrical Stimulation (EES) Research</span><span class="date">Summer 2025</span></div>
+            <div class="institution">Summer Researcher | Zhejiang University & Second Affiliated Hospital</div>
+            <ul>
+                <li>Analyzed 16-channel EMG datasets for spinal cord injury (SCI) rehabilitation.</li>
+                <li>Built MATLAB/Python pipelines and interactive visual parameter adjustment tools, improving efficiency by 30%.</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="item-header"><span>BCI for Robotic Fist Control</span><span class="date">2024 – 2025</span></div>
+            <div class="institution">Final Year Project | University of Edinburgh</div>
+            <ul>
+                <li>Developed a deep learning EEG decoder using enhanced EEGNet; improved accuracy from 43% to 60%.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Master's Thesis</h2>
+        <div class="item">
+            <div class="item-header"><span>Foundation Models for EEG Decoding</span><span class="date">2025 – Present</span></div>
+            <ul>
+                <li>Designing an end-to-end BCI system leveraging EEG foundation models (e.g., LaBraM) for cross-subject decoding.</li>
+                <li>Building a pseudo-real-time streaming pipeline to evaluate latency and stability in human-machine interaction.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Industry Experience</h2>
+        <div class="item">
+            <div class="item-header"><span>Hikvision</span><span class="date">Summer 2024</span></div>
+            <div class="institution">Engineering Project Testing Intern</div>
+            <ul>
+                <li>Conducted functional and reliability testing for new engineering products.</li>
+                <li>Collaborated with R&D to resolve defects and developed structured testing procedures.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-tag">Python (PyTorch)</div>
+            <div class="skill-tag">MATLAB</div>
+            <div class="skill-tag">C/C++</div>
+            <div class="skill-tag">Verilog / FPGA</div>
+            <div class="skill-tag">EEG/EMG Processing</div>
+            <div class="skill-tag">Machine Learning</div>
+            <div class="skill-tag">PCB Prototyping</div>
+            <div class="skill-tag">Signal Processing</div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
