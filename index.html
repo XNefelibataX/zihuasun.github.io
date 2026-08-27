@@ -3,130 +3,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zihua Sun | MSE EE @ UPenn</title>
+    <meta name="description" content="Zihua Sun is an electrical engineering master's student at UPenn researching EEG, brain-computer interfaces, foundation models, and rehabilitation robotics.">
+    <title>Zihua Sun | EEG & BCI Research</title>
     <style>
         :root {
-            --primary: #002e5d; /* UPenn Blue */
-            --accent: #9b0000;  /* UPenn Red */
-            --bg: #f4f7f6;
-            --text: #2c3e50;
+            --navy: #071d36;
+            --blue: #123f6d;
+            --red: #9d2235;
+            --ink: #17212b;
+            --muted: #5f6b76;
+            --line: #dce2e7;
+            --paper: #f7f6f2;
+            --white: #ffffff;
         }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; }
-        header { background: var(--primary); color: white; padding: 4rem 1rem; text-align: center; }
-        .container { max-width: 900px; margin: auto; padding: 2rem; }
-        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid white; object-fit: cover; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        h1 { margin: 0.5rem 0; font-size: 2.8rem; letter-spacing: -1px; }
-        .subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 1.5rem; }
-        .links a { color: white; text-decoration: none; margin: 0 10px; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; border-radius: 25px; transition: 0.3s; display: inline-block; }
-        .links a:hover { background: white; color: var(--primary); }
-        
-        section { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 2rem; }
-        h2 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-top: 0; font-size: 1.6rem; }
-        
-        .item { margin-bottom: 2rem; }
-        .item-header { display: flex; justify-content: space-between; font-weight: bold; font-size: 1.15rem; color: #000; }
-        .date { color: var(--accent); white-space: nowrap; margin-left: 10px; }
-        .institution { color: var(--primary); font-style: italic; margin-bottom: 0.5rem; }
-        
-        ul { padding-left: 1.2rem; margin-top: 0.5rem; }
-        li { margin-bottom: 0.5rem; }
-        
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
-        .skill-tag { background: #f0f3f7; padding: 0.5rem; border-radius: 6px; text-align: center; font-size: 0.9rem; font-weight: 500; border: 1px solid #e1e8ed; }
-        
-        @media (max-width: 600px) { .item-header { flex-direction: column; } .date { margin-left: 0; margin-top: 5px; } }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        a { color: inherit; }
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(247, 246, 242, 0.94);
+            border-bottom: 1px solid rgba(7, 29, 54, 0.12);
+            backdrop-filter: blur(12px);
+        }
+        .nav-inner {
+            max-width: 1120px;
+            min-height: 64px;
+            margin: auto;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .nav-name {
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.86rem;
+            font-weight: 650;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+        .nav-links a:hover, .nav-links a:focus { color: var(--red); }
+        .hero {
+            background:
+                radial-gradient(circle at 82% 22%, rgba(157, 34, 53, 0.14), transparent 24%),
+                linear-gradient(135deg, #071d36 0%, #0d3157 100%);
+            color: var(--white);
+        }
+        .hero-inner {
+            max-width: 1120px;
+            min-height: 520px;
+            margin: auto;
+            padding: 82px 28px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.65fr);
+            align-items: center;
+            gap: 80px;
+        }
+        .eyebrow {
+            margin: 0 0 18px;
+            color: #d6e2ee;
+            font-size: 0.78rem;
+            font-weight: 750;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+        h1 {
+            max-width: 750px;
+            margin: 0;
+            font-size: clamp(3.4rem, 7vw, 6.3rem);
+            font-weight: 500;
+            letter-spacing: -0.055em;
+            line-height: 0.96;
+        }
+        .hero-title {
+            max-width: 720px;
+            margin: 26px 0 0;
+            color: #edf3f8;
+            font-size: clamp(1.18rem, 2.2vw, 1.55rem);
+            line-height: 1.45;
+        }
+        .hero-summary {
+            max-width: 690px;
+            margin: 18px 0 0;
+            color: #bfcddd;
+            font-size: 1rem;
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+        .button {
+            padding: 10px 18px;
+            border: 1px solid rgba(255,255,255,0.44);
+            border-radius: 3px;
+            color: white;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition: 160ms ease;
+        }
+        .button.primary { background: white; color: var(--navy); border-color: white; }
+        .button:hover, .button:focus { transform: translateY(-2px); border-color: white; }
+        .portrait-wrap { position: relative; justify-self: end; }
+        .portrait-wrap::before {
+            content: "";
+            position: absolute;
+            inset: -14px 14px 14px -14px;
+            border: 1px solid rgba(255,255,255,0.28);
+        }
+        .portrait {
+            position: relative;
+            display: block;
+            width: min(100%, 280px);
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.03);
+            box-shadow: 0 22px 60px rgba(0,0,0,0.35);
+        }
+        .page { max-width: 1120px; margin: auto; padding: 88px 28px 100px; }
+        .section { padding: 78px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 54px; }
+        .section:first-child { padding-top: 0; }
+        .section:last-child { border-bottom: 0; padding-bottom: 0; }
+        .section-heading {
+            display: grid;
+            grid-template-columns: 210px 1fr;
+            gap: 44px;
+            margin-bottom: 42px;
+        }
+        .section-kicker {
+            margin: 7px 0 0;
+            color: var(--red);
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        h2 {
+            margin: 0;
+            color: var(--navy);
+            font-size: clamp(2rem, 4vw, 3.1rem);
+            font-weight: 500;
+            letter-spacing: -0.035em;
+            line-height: 1.08;
+        }
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--navy);
+            border-bottom: 1px solid var(--navy);
+        }
+        .highlight { padding: 30px 28px 30px 0; }
+        .highlight + .highlight { padding-left: 28px; border-left: 1px solid var(--line); }
+        .metric {
+            display: block;
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2.3rem;
+            line-height: 1.1;
+        }
+        .highlight h3 { margin: 10px 0 6px; color: var(--navy); font-size: 1.04rem; }
+        .highlight p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
+        .education-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+        .education-card { padding-top: 22px; border-top: 2px solid var(--navy); }
+        .education-card h3 { margin: 0 0 5px; color: var(--navy); font-size: 1.3rem; }
+        .education-card p { margin: 3px 0; color: var(--muted); }
+        .education-card .degree { color: var(--ink); }
+        .timeline { position: relative; }
+        .experience {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 36px;
+            padding: 0 0 50px;
+        }
+        .experience:last-child { padding-bottom: 0; }
+        .experience-date {
+            padding-top: 3px;
+            color: var(--red);
+            font-size: 0.83rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .experience-content { position: relative; padding-left: 30px; border-left: 1px solid var(--line); }
+        .experience-content::before {
+            content: "";
+            position: absolute;
+            top: 7px;
+            left: -5px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 0 6px var(--paper);
+        }
+        .experience.featured .experience-content { border-left-color: var(--navy); }
+        .experience.featured .experience-content::before { background: var(--navy); }
+        .experience h3 { margin: 0; color: var(--navy); font-size: 1.38rem; line-height: 1.28; }
+        .role { margin: 7px 0 13px; color: var(--blue); font-style: italic; }
+        .experience ul { margin: 0; padding-left: 1.15rem; }
+        .experience li { margin: 0 0 8px; padding-left: 4px; }
+        .experience li::marker { color: var(--red); }
+        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .project {
+            padding: 28px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 30px rgba(7,29,54,0.035);
+        }
+        .project-date { color: var(--red); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+        .project h3 { margin: 10px 0 12px; color: var(--navy); font-size: 1.25rem; line-height: 1.3; }
+        .project p { margin: 0; color: var(--muted); }
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 50px; }
+        .skill-row { padding: 19px 0; border-top: 1px solid var(--line); }
+        .skill-row h3 { margin: 0 0 5px; color: var(--navy); font-size: 1rem; }
+        .skill-row p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+        .achievement { display: grid; grid-template-columns: 150px 1fr; gap: 36px; padding: 24px 0; border-top: 1px solid var(--line); }
+        .achievement-year { color: var(--red); font-weight: 800; }
+        .achievement h3 { margin: 0 0 5px; color: var(--navy); font-size: 1.15rem; }
+        .achievement p { margin: 0; color: var(--muted); }
+        footer { background: var(--navy); color: white; }
+        .footer-inner {
+            max-width: 1120px;
+            margin: auto;
+            padding: 52px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+        .footer-inner p { margin: 0; color: #bfcddd; }
+        .footer-links { display: flex; gap: 18px; }
+        .footer-links a { color: white; font-weight: 700; text-decoration: none; }
+        @media (max-width: 820px) {
+            .nav-links a:nth-child(2), .nav-links a:nth-child(3) { display: none; }
+            .hero-inner { min-height: auto; grid-template-columns: 1fr 180px; gap: 38px; padding: 68px 28px; }
+            .section-heading { grid-template-columns: 135px 1fr; gap: 26px; }
+            .highlights { grid-template-columns: 1fr; }
+            .highlight, .highlight + .highlight { padding: 24px 0; border-left: 0; border-top: 1px solid var(--line); }
+            .highlight:first-child { border-top: 0; }
+        }
+        @media (max-width: 620px) {
+            .nav-inner { padding: 0 18px; }
+            .nav-links { gap: 14px; }
+            .hero-inner { display: flex; flex-direction: column-reverse; align-items: flex-start; padding: 48px 20px 58px; }
+            .portrait-wrap { justify-self: auto; }
+            .portrait { width: 128px; height: 154px; }
+            h1 { font-size: 3.25rem; }
+            .page { padding: 60px 20px 76px; }
+            .section { padding: 58px 0; }
+            .section-heading { display: block; margin-bottom: 32px; }
+            .section-kicker { margin: 0 0 10px; }
+            .education-list, .project-grid, .skills-grid { grid-template-columns: 1fr; }
+            .experience { grid-template-columns: 1fr; gap: 9px; padding-bottom: 44px; }
+            .experience-content { padding-left: 22px; }
+            .achievement { grid-template-columns: 1fr; gap: 5px; }
+            .footer-inner { align-items: flex-start; flex-direction: column; padding: 42px 20px; }
+        }
     </style>
 </head>
 <body>
+    <nav class="site-nav" aria-label="Primary navigation">
+        <div class="nav-inner">
+            <a class="nav-name" href="#top">Zihua Sun</a>
+            <div class="nav-links">
+                <a href="#research">Research</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="mailto:LeoSunZihua@163.com">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-<header>
-    <img src="photo.jpg" alt="Zihua Sun" class="profile-img">
-    <h1>Zihua Sun</h1>
-    <p class="subtitle">M.S.E. in Electrical Engineering @ University of Pennsylvania</p>
-    <div class="links">
-        <a href="mailto:szh16@seas.upenn.edu">Email</a>
-        <a href="https://www.linkedin.com/in/zihua-sun-974759381" target="_blank">LinkedIn</a>
-    </div>
-</header>
+    <header class="hero" id="top">
+        <div class="hero-inner">
+            <div>
+                <p class="eyebrow">Electrical Engineering · University of Pennsylvania</p>
+                <h1>Zihua Sun</h1>
+                <p class="hero-title">EEG &amp; Brain-Computer Interface Researcher</p>
+                <p class="hero-summary">I develop robust neural decoding methods and real-time closed-loop systems at the intersection of EEG foundation models, motor intention, and rehabilitation robotics.</p>
+                <div class="hero-actions">
+                    <a class="button primary" href="mailto:LeoSunZihua@163.com">Email me</a>
+                    <a class="button" href="https://www.linkedin.com/in/zihua-sun-974759381" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </div>
+            <div class="portrait-wrap">
+                <img class="portrait" src="photo.jpg" alt="Portrait of Zihua Sun">
+            </div>
+        </div>
+    </header>
 
-<div class="container">
-    <section>
-        <h2>Education</h2>
-        <div class="item">
-            <div class="item-header"><span>University of Pennsylvania</span><span class="date">Expected 2026</span></div>
-            <div class="institution">M.S.E. in Electrical Engineering</div>
-        </div>
-        <div class="item">
-            <div class="item-header"><span>University of Edinburgh</span><span class="date">2021 – 2024</span></div>
-            <div class="institution">B.Eng. (Hons) in Electronics and Electrical Engineering | First Class (A3)</div>
-        </div>
-    </section>
+    <main class="page">
+        <section class="section" aria-labelledby="highlights-title">
+            <div class="section-heading">
+                <p class="section-kicker">Selected impact</p>
+                <h2 id="highlights-title">Research highlights</h2>
+            </div>
+            <div class="highlights">
+                <article class="highlight">
+                    <span class="metric">~95%</span>
+                    <h3>Foundation-model decoding</h3>
+                    <p>Mean left/right motor-imagery accuracy with REVE and LoRA in a stroke cohort under subject-wise evaluation.</p>
+                </article>
+                <article class="highlight">
+                    <span class="metric">Closed loop</span>
+                    <h3>Brain-driven rehabilitation</h3>
+                    <p>Real-time motor-intention decoding connected to a pneumatic rehabilitation glove and robotic platforms.</p>
+                </article>
+                <article class="highlight">
+                    <span class="metric">~84%</span>
+                    <h3>Dry-electrode MI decoding</h3>
+                    <p>Single-session accuracy in representative high-quality recordings while benchmarking FBCSP+SVM and EEGNet.</p>
+                </article>
+            </div>
+        </section>
 
-    <section>
-        <h2>Research Experience</h2>
-        <div class="item">
-            <div class="item-header"><span>Rehabilitation Robotics Laboratory</span><span class="date">2025 – Present</span></div>
-            <div class="institution">Research Assistant | University of Pennsylvania</div>
-            <ul>
-                <li>Collaborating on EEG-based BCI pipelines for decoding action observation (AO) and motor imagery (MI) intentions.</li>
-                <li>Implementing multi-channel EEG preprocessing and feature extraction workflows.</li>
-                <li>Integrating neural signals with robotic systems for closed-loop action visualization.</li>
-            </ul>
-        </div>
-        <div class="item">
-            <div class="item-header"><span>Epidural Electrical Stimulation (EES) Research</span><span class="date">Summer 2025</span></div>
-            <div class="institution">Summer Researcher | Zhejiang University & Second Affiliated Hospital</div>
-            <ul>
-                <li>Analyzed 16-channel EMG datasets for spinal cord injury (SCI) rehabilitation.</li>
-                <li>Built MATLAB/Python pipelines and interactive visual parameter adjustment tools, improving efficiency by 30%.</li>
-            </ul>
-        </div>
-        <div class="item">
-            <div class="item-header"><span>BCI for Robotic Fist Control</span><span class="date">2024 – 2025</span></div>
-            <div class="institution">Final Year Project | University of Edinburgh</div>
-            <ul>
-                <li>Developed a deep learning EEG decoder using enhanced EEGNet; improved accuracy from 43% to 60%.</li>
-            </ul>
-        </div>
-    </section>
+        <section class="section" aria-labelledby="education-title">
+            <div class="section-heading">
+                <p class="section-kicker">Background</p>
+                <h2 id="education-title">Education</h2>
+            </div>
+            <div class="education-list">
+                <article class="education-card">
+                    <h3>University of Pennsylvania</h3>
+                    <p class="degree">M.S.E. in Electrical Engineering</p>
+                    <p>School of Engineering and Applied Science</p>
+                    <p>Expected December 2026</p>
+                </article>
+                <article class="education-card">
+                    <h3>University of Edinburgh</h3>
+                    <p class="degree">B.Eng. (Hons) in Electronics &amp; Electrical Engineering</p>
+                    <p>2021–2025</p>
+                </article>
+            </div>
+        </section>
 
-    <section>
-        <h2>Master's Thesis</h2>
-        <div class="item">
-            <div class="item-header"><span>Foundation Models for EEG Decoding</span><span class="date">2025 – Present</span></div>
-            <ul>
-                <li>Designing an end-to-end BCI system leveraging EEG foundation models (e.g., LaBraM) for cross-subject decoding.</li>
-                <li>Building a pseudo-real-time streaming pipeline to evaluate latency and stability in human-machine interaction.</li>
-            </ul>
-        </div>
-    </section>
+        <section class="section" id="research" aria-labelledby="research-title">
+            <div class="section-heading">
+                <p class="section-kicker">Complete record</p>
+                <h2 id="research-title">Research experience</h2>
+            </div>
+            <div class="timeline">
+                <article class="experience featured">
+                    <div class="experience-date">2026–Present</div>
+                    <div class="experience-content">
+                        <h3>Real-Time Closed-Loop Motor-Imagery BCI for Rehabilitation Devices</h3>
+                        <p class="role">Research Intern · BrainCo</p>
+                        <ul>
+                            <li>Develop end-to-end motor-imagery BCI systems using dry- and wet-electrode EEG, from acquisition and quality control to online inference and hardware integration.</li>
+                            <li>Build continuous left/right motor-intention decoding pipelines that control a pneumatic rehabilitation glove and robotic platforms.</li>
+                            <li>Benchmark FBCSP+SVM and EEGNet, reaching approximately 84% single-session accuracy in representative high-quality dry-electrode recordings.</li>
+                            <li>Study low-SNR EEG, cross-session shift, inter-subject variability, false activations, and lightweight online adaptation strategies.</li>
+                        </ul>
+                    </div>
+                </article>
 
-    <section>
-        <h2>Industry Experience</h2>
-        <div class="item">
-            <div class="item-header"><span>Hikvision</span><span class="date">Summer 2024</span></div>
-            <div class="institution">Engineering Project Testing Intern</div>
-            <ul>
-                <li>Conducted functional and reliability testing for new engineering products.</li>
-                <li>Collaborated with R&D to resolve defects and developed structured testing procedures.</li>
-            </ul>
-        </div>
-    </section>
+                <article class="experience featured">
+                    <div class="experience-date">2025–Present</div>
+                    <div class="experience-content">
+                        <h3>M.S.E. Thesis: EEG Foundation Models for Robust Motor-Intention Decoding</h3>
+                        <p class="role">University of Pennsylvania · Advisors: Prof. Michelle J. Johnson and Prof. Nadia Figueroa</p>
+                        <ul>
+                            <li>Investigate REVE and LaBraM across healthy participants and individuals with stroke, emphasizing generalization, data efficiency, and domain shift.</li>
+                            <li>Apply LoRA-based fine-tuning; REVE achieved approximately 95% mean left/right motor-imagery accuracy in the stroke cohort under subject-wise evaluation.</li>
+                            <li>Conduct channel and temporal-window ablations and examine compact sensorimotor configurations, healthy-to-stroke transfer, and failure cases.</li>
+                            <li>Extend the work toward pseudo-real-time and closed-loop AO/MI decoding with online adaptation and rehabilitation-robot feedback.</li>
+                        </ul>
+                    </div>
+                </article>
 
-    <section>
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-tag">Python (PyTorch)</div>
-            <div class="skill-tag">MATLAB</div>
-            <div class="skill-tag">C/C++</div>
-            <div class="skill-tag">Verilog / FPGA</div>
-            <div class="skill-tag">EEG/EMG Processing</div>
-            <div class="skill-tag">Machine Learning</div>
-            <div class="skill-tag">PCB Prototyping</div>
-            <div class="skill-tag">Signal Processing</div>
-        </div>
-    </section>
-</div>
+                <article class="experience featured">
+                    <div class="experience-date">2025–Present</div>
+                    <div class="experience-content">
+                        <h3>EEG-Based Motor Intention Decoding for Rehabilitation Robotics</h3>
+                        <p class="role">Research Assistant · Rehabilitation Robotics Laboratory, University of Pennsylvania</p>
+                        <ul>
+                            <li>Work with Prof. Michelle J. Johnson on EEG-based action observation and motor imagery for upper-limb rehabilitation and bilateral intention decoding.</li>
+                            <li>Analyze motor-related mu/beta activity and spatial-temporal EEG representations across upper-limb actions under subject and session variability.</li>
+                            <li>Integrate EEG decoding with rehabilitation robotics through real-time interfaces for closed-loop intention-to-robot feedback.</li>
+                        </ul>
+                    </div>
+                </article>
 
+                <article class="experience">
+                    <div class="experience-date">Summer 2025</div>
+                    <div class="experience-content">
+                        <h3>Epidural Electrical Stimulation for Spinal Cord Injury Rehabilitation</h3>
+                        <p class="role">Summer Researcher · Zhejiang University &amp; Zhejiang University Second Affiliated Hospital</p>
+                        <ul>
+                            <li>Analyzed multi-channel EMG responses under varying stimulation parameters and developed MATLAB/Python pipelines for artifact handling and quantitative analysis.</li>
+                            <li>Extracted ΔARV and median-frequency features across stimulation channels, muscles, frequencies, and current levels.</li>
+                            <li>Built an interactive Dash/Plotly system for exploring response maps, muscle recruitment, and stimulation-parameter effects.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="experience">
+                    <div class="experience-date">2024–2025</div>
+                    <div class="experience-content">
+                        <h3>Brain-Computer Interface for Robotic Fist Control</h3>
+                        <p class="role">B.Eng. Honours Project · University of Edinburgh</p>
+                        <ul>
+                            <li>Developed a four-class EEG decoder for real and imagined left/right fist movements using the PhysioNet EEG Motor Movement/Imagery dataset.</li>
+                            <li>Enhanced EEGNet with 8–30 Hz motor-band filtering and dynamic channel attention, improving accuracy from 43.3% to approximately 60% with fewer than 9K trainable parameters.</li>
+                            <li>Completed preprocessing, model development, ablations, five-fold cross-validation, comparisons, visualization, and performance analysis.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="projects" aria-labelledby="projects-title">
+            <div class="section-heading">
+                <p class="section-kicker">Applied engineering</p>
+                <h2 id="projects-title">Selected projects</h2>
+            </div>
+            <div class="project-grid">
+                <article class="project">
+                    <span class="project-date">2022–2023</span>
+                    <h3>Vision-Based Posture Monitoring and Neck/Shoulder Health System</h3>
+                    <p>Developed a camera-based system to estimate head-flexion angle and duration, with real-time posture feedback delivered through a WeChat mini-program.</p>
+                </article>
+                <article class="project">
+                    <span class="project-date">2021–2024</span>
+                    <h3>Vision-Based Spinal Health Assessment Mini Program</h3>
+                    <p>Developed image-based spinal-curvature and human-joint assessment integrated into a WeChat mini-program for posture evaluation and rehabilitation recommendations.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="skills" aria-labelledby="skills-title">
+            <div class="section-heading">
+                <p class="section-kicker">Methods &amp; tools</p>
+                <h2 id="skills-title">Technical skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-row">
+                    <h3>Programming</h3>
+                    <p>Python, MATLAB, C/C++, Verilog</p>
+                </div>
+                <div class="skill-row">
+                    <h3>Machine Learning</h3>
+                    <p>PyTorch, TensorFlow/Keras, scikit-learn; EEGNet, REVE, LaBraM, LoRA, SVM</p>
+                </div>
+                <div class="skill-row">
+                    <h3>Neural Signal Processing</h3>
+                    <p>EEG/EMG preprocessing, MNE-Python, CSP/FBCSP, spectral and time-frequency analysis, artifact and signal-quality analysis</p>
+                </div>
+                <div class="skill-row">
+                    <h3>Real-Time Systems</h3>
+                    <p>Sliding-window inference, online calibration and adaptation, ROS, Linux, Docker, Git, Dash/Plotly, hardware-control integration</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="achievements-title">
+            <div class="section-heading">
+                <p class="section-kicker">Recognition</p>
+                <h2 id="achievements-title">Achievements</h2>
+            </div>
+            <article class="achievement">
+                <div class="achievement-year">2026</div>
+                <div>
+                    <h3>Patent Application (Pending), BrainCo</h3>
+                    <p>EEG foundation-model-based motor-intention decoding and real-time closed-loop control of rehabilitation devices.</p>
+                </div>
+            </article>
+            <article class="achievement">
+                <div class="achievement-year">2019–2020</div>
+                <div>
+                    <h3>Patent: Tongue Imaging Optical Device for Health Diagnostics</h3>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p>Zihua Sun · Philadelphia, PA</p>
+            <div class="footer-links">
+                <a href="mailto:LeoSunZihua@163.com">Email</a>
+                <a href="https://www.linkedin.com/in/zihua-sun-974759381" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
