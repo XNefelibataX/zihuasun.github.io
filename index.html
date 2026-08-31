@@ -185,6 +185,25 @@
         .education-card h3 { margin: 0 0 5px; color: var(--navy); font-size: 1.3rem; }
         .education-card p { margin: 3px 0; color: var(--muted); }
         .education-card .degree { color: var(--ink); }
+        .publication-list { display: grid; gap: 22px; }
+        .publication {
+            display: grid;
+            grid-template-columns: 116px 1fr;
+            gap: 30px;
+            padding: 26px 0;
+            border-top: 1px solid var(--line);
+        }
+        .publication-status {
+            color: var(--red);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .publication p { margin: 0; }
+        .publication-title { color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 1.13rem; line-height: 1.5; }
+        .publication-venue { margin-top: 7px !important; color: var(--muted); font-size: 0.92rem; }
+        .equal-contribution { margin-top: 5px !important; color: var(--muted); font-size: 0.82rem; }
         .timeline { position: relative; }
         .experience {
             display: grid;
@@ -273,6 +292,7 @@
             .education-list, .project-grid, .skills-grid { grid-template-columns: 1fr; }
             .experience { grid-template-columns: 1fr; gap: 9px; padding-bottom: 44px; }
             .experience-content { padding-left: 22px; }
+            .publication { grid-template-columns: 1fr; gap: 7px; }
             .achievement { grid-template-columns: 1fr; gap: 5px; }
             .footer-inner { align-items: flex-start; flex-direction: column; padding: 42px 20px; }
         }
@@ -283,6 +303,7 @@
         <div class="nav-inner">
             <a class="nav-name" href="#top">Zihua Sun</a>
             <div class="nav-links">
+                <a href="#publications">Publications</a>
                 <a href="#research">Research</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
@@ -327,9 +348,33 @@
                     <p>Real-time motor-intention decoding connected to a pneumatic rehabilitation glove and robotic platforms.</p>
                 </article>
                 <article class="highlight">
-                    <span class="metric">~84%</span>
-                    <h3>Dry-electrode MI decoding</h3>
-                    <p>Single-session accuracy in representative high-quality recordings while benchmarking FBCSP+SVM and EEGNet.</p>
+                    <span class="metric">2 outputs</span>
+                    <h3>Research dissemination</h3>
+                    <p>A co-first-author journal manuscript submitted and a first-author abstract accepted to ACRM 2026.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="publications" aria-labelledby="publications-title">
+            <div class="section-heading">
+                <p class="section-kicker">Scholarly work</p>
+                <h2 id="publications-title">Publications &amp; manuscripts</h2>
+            </div>
+            <div class="publication-list">
+                <article class="publication">
+                    <div class="publication-status">Submitted · 2026</div>
+                    <div>
+                        <p class="publication-title"><strong>A. Nguyen*</strong>, <strong>Z. Sun*</strong>, and M. J. Johnson. “Lightweight Adaptation of EEG Foundation Models for Stroke Motor Imagery Decoding: Domain Shift and Subject-Level Robustness.”</p>
+                        <p class="publication-venue"><em>Biomedical Signal Processing and Control</em>.</p>
+                        <p class="equal-contribution">*Equal contribution.</p>
+                    </div>
+                </article>
+                <article class="publication">
+                    <div class="publication-status">Accepted · 2026</div>
+                    <div>
+                        <p class="publication-title"><strong>Z. Sun</strong>, et al. “Lightweight Adaptation of EEG Foundation Models for Stroke Motor Imagery Decoding: Domain Shift and Subject-Level Robustness.”</p>
+                        <p class="publication-venue"><em>ACRM 2026 Annual Conference</em>.</p>
+                    </div>
                 </article>
             </div>
         </section>
@@ -383,6 +428,7 @@
                             <li>Investigate REVE and LaBraM across healthy participants and individuals with stroke, emphasizing generalization, data efficiency, and domain shift.</li>
                             <li>Apply LoRA-based fine-tuning; REVE achieved approximately 95% mean left/right motor-imagery accuracy in the stroke cohort under subject-wise evaluation.</li>
                             <li>Conduct channel and temporal-window ablations and examine compact sensorimotor configurations, healthy-to-stroke transfer, and failure cases.</li>
+                            <li>Resulted in a co-first-author journal manuscript submission and a first-author abstract accepted to ACRM 2026.</li>
                             <li>Extend the work toward pseudo-real-time and closed-loop AO/MI decoding with online adaptation and rehabilitation-robot feedback.</li>
                         </ul>
                     </div>
@@ -407,7 +453,8 @@
                         <h3>Epidural Electrical Stimulation for Spinal Cord Injury Rehabilitation</h3>
                         <p class="role">Summer Researcher · Zhejiang University &amp; Zhejiang University Second Affiliated Hospital</p>
                         <ul>
-                            <li>Analyzed multi-channel EMG responses under varying stimulation parameters and developed MATLAB/Python pipelines for artifact handling and quantitative analysis.</li>
+                            <li>Worked with Prof. Kedi Xu and Prof. Junming Zhu to analyze multi-channel EMG responses from individuals with spinal cord injury under varying stimulation parameters.</li>
+                            <li>Developed MATLAB/Python pipelines for artifact handling, segmentation, and quantitative response analysis.</li>
                             <li>Extracted ΔARV and median-frequency features across stimulation channels, muscles, frequencies, and current levels.</li>
                             <li>Built an interactive Dash/Plotly system for exploring response maps, muscle recruitment, and stimulation-parameter effects.</li>
                         </ul>
@@ -476,7 +523,7 @@
         <section class="section" aria-labelledby="achievements-title">
             <div class="section-heading">
                 <p class="section-kicker">Recognition</p>
-                <h2 id="achievements-title">Achievements</h2>
+                <h2 id="achievements-title">Patents</h2>
             </div>
             <article class="achievement">
                 <div class="achievement-year">2026</div>
